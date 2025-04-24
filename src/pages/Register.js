@@ -32,7 +32,7 @@ function Register() {
    
   
     try {
-      const response = await axios.post('http://authback-backend-production.up.railway.app:5000/register', {
+      const response = await axios.post('https://authback-backend-production.up.railway.app:5000/register', {
         login: formData.login,
         password: formData.password,
         phone_number: formData.phone_number
@@ -61,7 +61,7 @@ function Register() {
   
   const verifyOtp = async () => {
     try {
-      const res = await axios.post('http://authback-backend-production.up.railway.app:5000/verify-code', {
+      const res = await axios.post('https://authback-backend-production.up.railway.app:5000/verify-code', {
         phone_number: "+212"+formData.phone_number,
         code: formData.otp
       });
@@ -80,7 +80,7 @@ function Register() {
   const sendOtp = async () => {
     setOtpError('');
     try {
-      const res = await axios.post('http://authback-backend-production.up.railway.appt:5000/send-verification-code', {
+      const res = await axios.post('https://authback-backend-production.up.railway.appt:5000/send-verification-code', {
         phone_number: "+212"+formData.phone_number
       });
       if (res.data.status === 'pending') {
@@ -168,37 +168,7 @@ function Register() {
               />
             </div>
   
-            {!otpSent ? (
-              <button type="button" onClick={sendOtp}>
-                📩 Envoyer code OTP
-              </button>
-            ) : (
-              <div className="otp-verification-section">
-                <input
-                  type="text"
-                  name="otp"
-                  placeholder="Code OTP"
-                  value={formData.otp}
-                  onChange={handleChange}
-                  required
-                />
-                <button type="button" onClick={verifyOtp}>
-                  ✅ Vérifier le code
-                </button>
-  
-                {otpVerified && (
-                  <p style={{ color: 'green', marginTop: '5px' }}>
-                    ✅ Code vérifié avec succès
-                  </p>
-                )}
-  
-                {otpError && (
-                  <p style={{ color: 'red', marginTop: '5px' }}>
-                    ❌ {otpError}
-                  </p>
-                )}
-              </div>
-            )}
+           
           </div>
   
           <button
