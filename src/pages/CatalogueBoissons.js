@@ -8,7 +8,7 @@ import "./CatalogueBoissons.css";
 import Navbar from "../Components/Navbar";
 
 function CatalogueBoissons() {
-  const [boissons, setBoissons] = useState([]);
+  
   const [parCategorie, setParCategorie] = useState({});
   const [selection, setSelection] = useState({});
   const [quantites, setQuantites] = useState({});
@@ -18,7 +18,7 @@ function CatalogueBoissons() {
   const [anonUserId, setAnonUserId] = useState("");
   const location = useLocation();
   const { state } = location || {};
-  const { Login, Id } = state || {};
+  const { Login } = state || {};
 
   // ✅ Gérer la session anonyme
   useEffect(() => {
