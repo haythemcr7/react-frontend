@@ -14,7 +14,6 @@ function CatalogueBoissons() {
   const [quantites, setQuantites] = useState({});
   const [error, setError] = useState("");
 
-
   const { table_numero } = useParams(); // On récupère le numéro de table depuis l'URL
   const [anonUserId, setAnonUserId] = useState("");
   const location = useLocation();
@@ -67,7 +66,7 @@ function CatalogueBoissons() {
   const validerCommande = (boisson) => {
     const commande = {
       user_id: anonUserId,
-      username : Login,
+      username: Login,
       table_numero: table_numero,
       boissons: [
         {
@@ -95,9 +94,7 @@ function CatalogueBoissons() {
         console.error("Erreur commande :", err);
         alert("❌ Une erreur est survenue.");
       });
-
-
-
+  };
 
   return (
     <div className="catalogue-container">
@@ -139,11 +136,4 @@ function CatalogueBoissons() {
   );
 }
 
-
-
-
-}
-
 export default CatalogueBoissons;
-
-
