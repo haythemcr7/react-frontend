@@ -33,7 +33,7 @@ function CatalogueBoissons() {
   // ✅ Charger le catalogue des boissons
   useEffect(() => {
     axios
-      .get("http://authback-backend-production.up.railway.app:5000/catalogue-boissons")
+      .get("http://authback-backend-production.up.railway.app/catalogue-boissons")
       .then((res) => {
         const groupes = {};
         res.data.forEach((boisson) => {
@@ -81,7 +81,7 @@ function CatalogueBoissons() {
     };
 
     axios
-      .post("http://authback-backend-production.up.railway.app:5000/commande-boissons/anonyme", commande, {
+      .post("http://authback-backend-production.up.railway.app/commande-boissons/anonyme", commande, {
         headers: {
           "Content-Type": "application/json"
         }
@@ -110,7 +110,7 @@ function CatalogueBoissons() {
           <div className="boissons-grid">
             {parCategorie[categorie].map((boisson) => (
               <div className="boisson-card" key={boisson._id}>
-                <img src={`http://authback-backend-production.up.railway.app:5000${boisson.image_url}`} alt={boisson.nom} />
+                <img src={`http://authback-backend-production.up.railway.app${boisson.image_url}`} alt={boisson.nom} />
                 <h3>{boisson.nom}</h3>
                 <p>{boisson.taille}</p>
                 <p><strong>{boisson.prix} MAD</strong></p>
