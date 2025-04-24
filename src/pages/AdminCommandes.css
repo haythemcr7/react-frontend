@@ -1,0 +1,146 @@
+.admin-container {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f0f2f5, #e0e7ff);
+    min-height: 100vh;
+    padding: 40px;
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    animation: fadeInDown 0.5s ease-in-out;
+  }
+  
+  h3 {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    background-color: #4facfe;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  .commandes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .commande-table-group {
+    animation: fadeInUp 0.4s ease;
+  }
+  
+  .commande-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .commande-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  li {
+    background-color: #f7f9fc;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 4px solid #4facfe;
+    font-size: 0.95rem;
+  }
+  
+  strong {
+    color: #1f3c88;
+  }
+  
+  .statut-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(135deg, #00f2fe, #4facfe);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .statut-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .statut-btn.disabled {
+    background: #2c3e50;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Logo admin navbar */
+  .navbar-logo {
+    height: 60px;
+    width: auto;
+    animation: logoPop 1s ease;
+  }
+  
+  @keyframes logoPop {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

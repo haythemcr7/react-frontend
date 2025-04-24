@@ -1,0 +1,64 @@
+/* src/pages/Dashboard.css */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    background: #2c3e50;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .nav-item:hover {
+    background: #34495e;
+  }
+  
+  .logout-btn {
+    background: #e74c3c;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dashboard-content {
+    padding: 2rem;
+    flex-grow: 1;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-width: 120px;
+    text-align: center;
+  }
