@@ -32,7 +32,7 @@ function Register() {
    
   
     try {
-      const response = await axios.post('https://authback-backend-production.up.railway.app:5000/register', {
+      const response = await axios.post('https://authback-backend-production.up.railway.app/register', {
         login: formData.login,
         password: formData.password,
         phone_number: formData.phone_number
@@ -59,39 +59,10 @@ function Register() {
     }
   };
   
-  const verifyOtp = async () => {
-    try {
-      const res = await axios.post('https://authback-backend-production.up.railway.app:5000/verify-code', {
-        phone_number: "+212"+formData.phone_number,
-        code: formData.otp
-      });
-      if (res.data.verified) {
-        setOtpVerified(true);
-      } else {
-        setOtpError("Code incorrect");
-      }
-    } catch (err) {
-      setOtpError("Erreur de vérification");
-      console.error(err);
-    }
-  };
 
 
-  const sendOtp = async () => {
-    setOtpError('');
-    try {
-      const res = await axios.post('https://authback-backend-production.up.railway.appt:5000/send-verification-code', {
-        phone_number: "+212"+formData.phone_number
-      });
-      if (res.data.status === 'pending') {
-        setOtpSent(true);
-      }
-    } catch (err) {
-      setOtpError("Échec d'envoi du code. Vérifie le numéro.");
-      console.error(err);
-    }
-  };
-  
+
+ 
 
 
 
