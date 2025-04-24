@@ -40,7 +40,7 @@ function AdminCommandes() {
   }, []);
 
   const fetchCommandes = () => {
-    axios.get("http://authback-backend-production.up.railway.app/admin/commandes")
+    axios.get("https://authback-backend-production.up.railway.app/admin/commandes")
       .then(res => {
         const regroupé = {};
 
@@ -68,7 +68,7 @@ function AdminCommandes() {
 
     try {
       await axios.patch(
-        `http://authback-backend-production.up.railway.app/admin/commandes/${commandeId}/livrer`,
+        `https://authback-backend-production.up.railway.app/admin/commandes/${commandeId}/livrer`,
         {},
         {
           headers: {

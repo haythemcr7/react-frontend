@@ -16,7 +16,7 @@ function ChooseTable() {
 
   // 📦 Charger la liste des tables depuis le backend
   useEffect(() => {
-    axios.get("http://authback-backend-production.up.railway.app/tables")
+    axios.get("https://authback-backend-production.up.railway.app/tables")
       .then((res) => setTables(res.data))
       .catch((err) => {
         console.error("Erreur chargement des tables :", err);
@@ -52,7 +52,7 @@ function ChooseTable() {
             onClick={() => handleSelect(t.numero)}
           >
             <h3>Table {t.numero}</h3>
-            <img src={`http://react-frontend-production-62fe.up.railway.app${t.image_url}`} alt={t.surnom} className="table-logo" />
+            <img src={`https://react-frontend-production-62fe.up.railway.app${t.image_url}`} alt={t.surnom} className="table-logo" />
             <p>{t.surnom}</p>
             <span className={`status ${t.etat}`}>{t.etat.toUpperCase()}</span>
           </motion.div>
