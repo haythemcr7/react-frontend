@@ -1,15 +1,13 @@
-// src/pages/Dashboard.js
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import './Dashboard.css';
 
-
 function Dashboard() {
   const [userData, setUserData] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { userId, username } = location.state || {};
+  const { userId, username } = location.state || {}; // récupération de l'état de la navigation
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,7 +23,7 @@ function Dashboard() {
       lastLogin: new Date().toLocaleString(),
       stats: { visits: 42, messages: 3 }
     });
-  }, [navigate]);
+  }, [navigate, userId, username]); // Ajout de userId et username dans les dépendances
 
   if (!userData) return <div>Chargement...</div>;
 
