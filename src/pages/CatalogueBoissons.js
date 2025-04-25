@@ -17,6 +17,7 @@ function CatalogueBoissons() {
   const { table_numero } = useParams(); // On récupère le numéro de table depuis l'URL
 
   const nom = localStorage.getItem("username");
+  console.log(nom)
 
   // ✅ Si un jour tu veux récupérer d'autres infos du state transmis :
   const routerLocation = useLocation();
@@ -46,12 +47,14 @@ function CatalogueBoissons() {
         });
         setBoissons(res.data);
         setParCategorie(groupes);
+        
       })
       .catch((err) => {
         console.error("Erreur récupération catalogue :", err);
         setError("Impossible de charger les boissons");
       });
   }, []);
+  
 
   // ✅ Ajouter une boisson
   const ajouter = (boisson) => {
@@ -90,6 +93,7 @@ function CatalogueBoissons() {
     const commande = {
       user_id: anonUserId,
       username:nom,
+
       table_numero: table_numero,
       boissons: [
         {
@@ -102,6 +106,7 @@ function CatalogueBoissons() {
       ],
       image_url: boisson.image_url,
     };
+   
    
       
 
@@ -124,7 +129,7 @@ function CatalogueBoissons() {
   return (
     <div className="catalogue-container">
       <Navbar />
-      <h1>Catalogue des Boissons</h1>
+      <h1>Catalogue des Boissons pour {nom}</h1>
       <h3>Table numéro : {table_numero}</h3>
 
       {error && <p className="error-message">{error}</p>}
