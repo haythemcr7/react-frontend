@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid"; // UUID pour session anonyme
-import { useLocation } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 import "./CatalogueBoissons.css";
 import Navbar from "../Components/Navbar";
@@ -13,12 +12,16 @@ function CatalogueBoissons() {
   const [selection, setSelection] = useState({});
   const [quantites, setQuantites] = useState({});
   const [error, setError] = useState("");
+  const [anonUserId, setAnonUserId] = useState("");
 
   const { table_numero } = useParams(); // On récupère le numéro de table depuis l'URL
-  const [anonUserId, setAnonUserId] = useState("");
-  const location = useLocation();
-  const { state } = location || {};
-  const { Login } = state || {};
+
+  const nom = localStorage.getItem("username");
+
+  // ✅ Si un jour tu veux récupérer d'autres infos du state transmis :
+  const routerLocation = useLocation();
+  const { state } = routerLocation || {};
+  const { Id, Login } = state || {};
 
   // ✅ Gérer la session anonyme
   useEffect(() => {
@@ -56,6 +59,26 @@ function CatalogueBoissons() {
     setQuantites({ ...quantites, [boisson._id]: 1 });
   };
 
+  const retirerBoisson = (boissonId) => {
+    setSelection((prev) => {
+      const updated = { ...prev };
+      delete updated[boissonId];
+      return updated;
+    });
+  
+    setQuantites((prev) => {
+      const updated = { ...prev };
+      delete updated[boissonId];
+      return updated;
+    });
+  };
+
+
+
+
+
+
+
   // ✅ Changer la quantité
   const changerQuantite = (id, val) => {
     const q = Math.max(1, parseInt(val) || 1);
@@ -66,7 +89,6 @@ function CatalogueBoissons() {
   const validerCommande = (boisson) => {
     const commande = {
       user_id: anonUserId,
-      username: Login,
       table_numero: table_numero,
       boissons: [
         {
@@ -74,17 +96,19 @@ function CatalogueBoissons() {
           nom: boisson.nom,
           taille: boisson.taille,
           quantite: quantites[boisson._id],
-          prix: boisson.prix
-        }
+          prix: boisson.prix,
+        },
       ],
-      image_url: boisson.image_url
+      image_url: boisson.image_url,
     };
+   
+      
 
     axios
       .post("https://authback-backend-production.up.railway.app/commande-boissons/anonyme", commande, {
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
       .then(() => {
         alert(`✅ Commande pour ${boisson.nom} validée (table ${table_numero})`);
@@ -99,7 +123,7 @@ function CatalogueBoissons() {
   return (
     <div className="catalogue-container">
       <Navbar />
-      <h1>Catalogue des Boissons pour {Login}</h1>
+      <h1>Catalogue des Boissons pour {nom}</h1>
       <h3>Table numéro : {table_numero}</h3>
 
       {error && <p className="error-message">{error}</p>}
@@ -107,7 +131,7 @@ function CatalogueBoissons() {
       {Object.keys(parCategorie).map((categorie) => (
         <div key={categorie}>
           <h2 className="categorie-title">{categorie.toUpperCase()}</h2>
-          <div className="boissons-grid">
+          <div className="boissons-row">
             {parCategorie[categorie].map((boisson) => (
               <div className="boisson-card" key={boisson._id}>
                 <img src={`https://authback-backend-production.up.railway.app${boisson.image_url}`} alt={boisson.nom} />
@@ -124,7 +148,10 @@ function CatalogueBoissons() {
                       <span className="quantite-value">{quantites[boisson._id]}</span>
                       <button className="quantite-btn" onClick={() => changerQuantite(boisson._id, quantites[boisson._id] + 1)}>+</button>
                     </div>
-                    <button className="valider-btn" onClick={() => validerCommande(boisson)}>Valider</button>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+  <button className="valider-btn" onClick={() => validerCommande(boisson)}>Valider</button>
+  <button className="retirer-btn" onClick={() => retirerBoisson(boisson._id)}>Retirer</button>
+</div>
                   </div>
                 )}
               </div>

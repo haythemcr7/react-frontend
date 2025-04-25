@@ -1,184 +1,277 @@
 .catalogue-container {
-    padding: 3rem;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #3e1f06, #8b5e3c, #f3e5ab);
-    color: #fff;
-    min-height: 100vh;
-    animation: fadeIn 1s ease-in;
-  }
-  
-  h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    background: linear-gradient(90deg, #fbc531, #e1b12c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    text-shadow: 1px 1px 2px #00000033;
-  }
-  
-  .categorie-title {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #fefefe;
-    border-bottom: 3px solid #fbc531;
-    padding-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .boissons-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-  }
-  
-  .boisson-card {
-    background: radial-gradient(circle at top left, #fff8dc, #f3d18c);
-    border-radius: 20px;
-    padding: 1.5rem;
-    width: 260px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-  }
-  
+  padding: 3rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #3e1f06, #8b5e3c, #f3e5ab);
+  color: #fff;
+  min-height: 100vh;
+  animation: fadeIn 1s ease-in;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #fbc531, #e1b12c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px #00000033;
+}
+
+
+
+.categorie-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fefefe;
+  border-bottom: 3px solid #fbc531;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 🖥️ Desktop view */
+.boissons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.boisson-card {
+  background-color: transparent; /* ✅ plus de fond blanc */
+  border: none;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.boisson-card h3 {
+  font-size: 1.2rem;
+  color: #5e3310;
+  font-weight: 600;
+  margin: 0.4rem 0;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.boisson-card img {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  border: 2px solid #fbc531;
+  background-color: transparent;
+}
+
+/* Hover PC uniquement */
+@media (hover: hover) and (pointer: fine) {
   .boisson-card:hover {
     transform: scale(1.07);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
   }
-  
-  .boisson-card img {
-    width: 220px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    border: 2px solid #fbc531;
-    transition: transform 0.3s ease;
-  }
-  
-  .boisson-card h3 {
-    font-size: 1.5rem;
-    color: #5e3310;
-    margin-bottom: 0.4rem;
-    font-weight: 600;
-  }
-  
-  .boisson-card p {
-    font-size: 1.1rem;
-    color: #8b4513;
-  }
-  
-  .boisson-card button {
-    background: linear-gradient(to right, #d35400, #e67e22);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.3rem;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 0.8rem;
-    font-size: 1.05rem;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  
+
   .boisson-card button:hover {
     background: linear-gradient(to right, #c0392b, #e67e22);
     transform: translateY(-2px);
   }
 
-  
-  
- 
-
-
-
-
-
-
-  
-  .selection-section {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 0.4s ease-in-out;
-  }
-  
-  .selection-section input {
-    width: 60px;
-    padding: 0.4rem;
-    margin-top: 0.4rem;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .valider-btn {
-    margin-top: 0.7rem;
-    padding: 0.6rem 1.2rem;
-    background: linear-gradient(to right, #28a745, #218838);
-    border: none;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  
-  .valider-btn:hover {
-    background: linear-gradient(to right, #1e7e34, #28a745);
-  }
- 
-  
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .quantite-controller {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 8px;
-  }
-  
-  .quantite-btn {
-    background-color: #4facfe;
-    border: none;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 6px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-  
   .quantite-btn:hover {
     transform: scale(1.1);
     background-color: #357ae8;
   }
-  
-  .quantite-btn:active {
-    transform: scale(0.95);
+
+  .valider-btn:hover {
+    background: linear-gradient(to right, #1e7e34, #28a745);
   }
-  
-  .quantite-value {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    min-width: 24px;
+}
+
+/* 📱 Mobile - iPhone */
+@media (max-width: 768px) {
+  .boissons-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .boissons-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .boisson-card {
+    min-width: 160px;
+    max-width: 180px;
+    flex: 0 0 auto;
+    padding: 0.6rem;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: none;
+    background-color: transparent;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ✅ garde les boutons en bas */
+    height: 100%; /* pour les cartes uniformes */
   }
-    
+  
+
+  .boisson-card img {
+    width: 100%;
+    height: 200px; /* ✅ Fixe la hauteur */
+    object-fit: cover; /* ✅ Coupe proprement sans déformation */
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
+    background-color: transparent;
+  }
+  
+
+  .boisson-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.boisson-card h3 {
+  font-size: 1.2rem;
+  color: #5e3310;
+  font-weight: 600;
+  margin: 0.4rem 0;
+  min-height: 2.5rem; /* ✅ réserve de l’espace fixe pour le titre */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.boisson-card p {
+  font-size: 1rem;
+  color: #8b4513;
+  margin: 0.2rem 0;
+  min-height: 1.2rem;
+}
+
+.boisson-card button {
+  background: linear-gradient(to right, #d35400, #e67e22);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: auto;
+  font-size: 1.05rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Quantité & validation */
+.selection-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.quantite-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quantite-btn {
+  background-color: #4facfe;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.quantite-btn:active {
+  transform: scale(0.95);
+}
+
+.quantite-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  min-width: 24px;
+  text-align: center;
+}
+
+.valider-btn {
+  margin-top: 0.7rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #28a745, #218838);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.boissons-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.boissons-row::-webkit-scrollbar {
+  display: none;
+}
+
+.retirer-btn {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.retirer-btn:hover {
+  background: linear-gradient(to right, #c0392b, #a93226);
+}

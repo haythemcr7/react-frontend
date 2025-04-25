@@ -1,100 +1,99 @@
 .choose-container {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(0.25turn, #8B5A2B, #A0522D, #f69d3c);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(0.25turn, #8B5A2B, #A0522D, #f69d3c);
 
 
-    min-height: 100vh;
-    padding: 40px;
-    color: #070303;
-    text-align: center;
-  }
-  .choose-container h1 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    animation: fadeInDown 0.5s ease;
-  }
-  
-  .tables-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
-  
-  .table-card {
-    background: rgba(218, 165, 5, 0);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(212, 34, 34, 0.1);
-    transition: all 0.3s ease-in-out;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .table-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .table-card.selected {
-    border: 3px solid #4facfe;
-    box-shadow: 0 0 12px #4facfe66;
-  }
-  
-  .table-logo {
-    width: 300px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    animation: fadeIn 0.4s ease-in-out;
-  }
-  
-  .table-card h3 {
-    background-color: #4facfe;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 12px;
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
-  
-  .table-card p {
-    font-size: 2rem;
-    margin: 4px 0;
-    font-weight: 500;
-  }
-  
-  .status {
-    margin-top: 10px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .status.libre {
-    background-color: #2ecc71;
-    color: white;
-  }
-  
-  .status.occupe {
-    background-color: #e74c3c;
-    color: white;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
+  min-height: 100vh;
+  padding: 40px;
+  color: #070303;
+  text-align: center;
+}
+.choose-container h1 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.5s ease;
+}
+
+.tables-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.table-card {
+  background: rgba(218, 165, 5, 0);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(212, 34, 34, 0.1);
+  transition: all 0.3s ease-in-out;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.table-card:hover {
+  transform: scale(1.05);
+}
+
+.table-card.selected {
+  border: 3px solid #4facfe;
+  box-shadow: 0 0 12px #4facfe66;
+}
+
+.table-logo {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.table-card h3 {
+  background-color: #4facfe;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.table-card p {
+  font-size: 2rem;
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.status {
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status.libre {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.status.occupe {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

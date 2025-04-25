@@ -16,7 +16,7 @@ function ChooseTable() {
 
   // 📦 Charger la liste des tables depuis le backend
   useEffect(() => {
-    axios.get("https://authback-backend-production.up.railway.app/tables")
+    axios.get("https:authback-backend-production.up.railway.app/tables")
       .then((res) => setTables(res.data))
       .catch((err) => {
         console.error("Erreur chargement des tables :", err);
@@ -28,14 +28,18 @@ function ChooseTable() {
   const handleSelect = (numero) => {
     setSelected(numero);
     setTimeout(() => {
+      localStorage.setItem("table_numero", numero);
+      localStorage.setItem("username", username);
 
       // ✅ Redirection vers l'interface catalogue avec le numéro de table
       navigate(`/table/${numero}`, {
         state: {
            Id: userId,
-           Login: username
+           Login: username,
+           table_numero:selected
         }
       })
+     
     }, 800);
   };
 

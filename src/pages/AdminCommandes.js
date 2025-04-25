@@ -61,6 +61,23 @@ function AdminCommandes() {
         console.error("Erreur chargement commandes admin :", err);
       });
   };
+  const handleArchiver = async () => {
+    const token = localStorage.getItem("token");
+  
+    try {
+      await axios.post("https://authback-backend-production.up.railway.app/admin/archiver-commandes", {}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+  
+      alert("✅ Commandes archivées avec succès !");
+      fetchCommandes(); // Recharge après archivage (sera vide)
+    } catch (err) {
+      console.error("Erreur archivage :", err.response?.data || err.message);
+      alert("❌ Une erreur est survenue lors de l'archivage.");
+    }
+  };
 
   // ✅ Marquer une commande comme livrée
   const handleLivrerCommande = async (commandeId) => {
@@ -89,6 +106,9 @@ function AdminCommandes() {
       <h1>Interface Administrateur</h1>
       <p>Connecté en tant que : <strong>{username}</strong> (ID : {userId})</p>
       <h2>📦 Commandes groupées par table</h2>
+      <button className="archiver-btn" onClick={handleArchiver}>
+  📁 Archiver les commandes
+</button>
 
       <div className="commandes-list">
         {Object.entries(grouped).map(([table, commandes]) => (
@@ -96,7 +116,7 @@ function AdminCommandes() {
             <h3>{table}</h3>
             {commandes.map((cmd) => (
               <div key={cmd._id} className="commande-card">
-                <p><strong>Client:</strong> {cmd.username || "Anonyme"}</p>
+                <p><strong>Client:</strong> {cmd.user_id || "Anonyme"}</p>
                 <p><strong>Date:</strong> {new Date(cmd.date_commande).toLocaleString()}</p>
                 <p><strong>Statut:</strong> {cmd.statut}</p>
                 <ul>
