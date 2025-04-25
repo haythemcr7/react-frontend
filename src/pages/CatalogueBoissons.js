@@ -123,7 +123,7 @@ function CatalogueBoissons() {
   return (
     <div className="catalogue-container">
       <Navbar />
-      <h1>Catalogue des Boissons pour {nom}</h1>
+      <h1>Catalogue des Boissons</h1>
       <h3>Table numéro : {table_numero}</h3>
 
       {error && <p className="error-message">{error}</p>}

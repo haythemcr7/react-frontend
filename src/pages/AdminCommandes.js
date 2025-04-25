@@ -116,7 +116,7 @@ function AdminCommandes() {
             <h3>{table}</h3>
             {commandes.map((cmd) => (
               <div key={cmd._id} className="commande-card">
-                <p><strong>Client:</strong> {cmd.user_id || "Anonyme"}</p>
+                <p><strong>Client:</strong> {cmd.username || "Anonyme"}</p>
                 <p><strong>Date:</strong> {new Date(cmd.date_commande).toLocaleString()}</p>
                 <p><strong>Statut:</strong> {cmd.statut}</p>
                 <ul>
