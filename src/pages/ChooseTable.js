@@ -16,7 +16,7 @@ function ChooseTable() {
 
   // 📦 Charger la liste des tables depuis le backend
   useEffect(() => {
-    axios.get("https:authback-backend-production.up.railway.app/tables")
+    axios.get("https://authback-backend-production.up.railway.app/tables")
       .then((res) => setTables(res.data))
       .catch((err) => {
         console.error("Erreur chargement des tables :", err);
