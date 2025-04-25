@@ -89,6 +89,7 @@ function CatalogueBoissons() {
   const validerCommande = (boisson) => {
     const commande = {
       user_id: anonUserId,
+      username:nom,
       table_numero: table_numero,
       boissons: [
         {
